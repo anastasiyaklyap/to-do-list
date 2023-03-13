@@ -1,0 +1,42 @@
+@import '../../styles/settings.scss';
+
+.nav {
+	position: sticky;
+	top: 0;
+	background-color: darken($color-dark, 3%);
+	> div {
+		margin: 0 auto;
+	}
+	.container {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 0;
+		align-items: center;
+
+		.navigation {
+			list-style: none;
+			padding-left: 0;
+			display: flex;
+			li {
+				padding: 10px;
+				a {
+					text-decoration: none;
+					color: $color-light;
+
+					&:hover {
+						color: darken($color-light, 20%);
+					}
+				}
+			}
+		}
+
+		.icon {
+			color: $color-light;
+			font-size: 24px;
+
+			&:hover {
+				color: darken($color-light, 20%);
+			}
+		}
+	}
+}
