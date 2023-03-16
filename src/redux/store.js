@@ -28,6 +28,10 @@ export const getFilteredCards = ({ cards, searchQuery }, columnId) =>
 		(card) => card.columnId === columnId && strContains(card.title, searchQuery)
 	);
 
+export const getFavoriteCards = ({ cards }) => {
+	return cards.filter((card) => card.isFavorite);
+};
+
 export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
 export const addList = (payload) => ({ type: 'ADD_LIST', payload });
 
@@ -35,6 +39,11 @@ export const addCard = (payload) => ({ type: 'ADD_CARD', payload });
 
 export const updateSearchQuery = (payload) => ({
 	type: 'UPDATE_SEARCHQUERY',
+	payload,
+});
+
+export const toggleCardFavorite = (payload) => ({
+	type: 'TOGGLE_CARD_FAVORITE',
 	payload,
 });
 
@@ -59,6 +68,15 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				searchQuery: action.payload,
+			};
+		case 'TOGGLE_CARD_FAVORITE':
+			return {
+				...state,
+				cards: state.cards.map((card) =>
+					card.id === action.payload
+						? { ...card, isFavorite: !card.isFavorite }
+						: card
+				),
 			};
 		default:
 			return state;

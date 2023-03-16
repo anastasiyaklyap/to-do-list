@@ -19,6 +19,8 @@ const Column = ({ title, icon, id }) => {
 						<Card
 							key={card.id}
 							title={card.title}
+							id={card.id}
+							isFavorite={card.isFavorite}
 						/>
 					))}
 				</ul>
