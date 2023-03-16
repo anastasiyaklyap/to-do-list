@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
 import Favorite from './components/Favorite/Favorite';
 import About from './components/About/About';
+import List from './components/List/List';
 import NotFound from './components/NotFound/NotFound';
 
 const App = () => {
@@ -23,6 +24,10 @@ const App = () => {
 					<Route
 						path='/favorite'
 						element={<Favorite />}
+					/>
+					<Route
+						path='/list/:listId'
+						element={<List />}
 					/>
 					<Route
 						path='*'

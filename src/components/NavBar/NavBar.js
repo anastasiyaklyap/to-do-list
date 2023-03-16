@@ -1,25 +1,50 @@
-import styles from './NavBar.module.scss';
-import Container from '../Container/Container';
+import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBarsProgress } from '@fortawesome/free-solid-svg-icons';
+import styles from './NavBar.module.scss';
+import Container from '../Container/Container';
 
 const NavBar = () => {
 	return (
 		<nav className={styles.nav}>
 			<Container>
 				<div className={styles.container}>
-					<a href='/'>
-					<FontAwesomeIcon icon={faBarsProgress} className={styles.icon}/>
-					</a>
+					<Link to='/'>
+						<FontAwesomeIcon
+							icon={faBarsProgress}
+							className={styles.icon}
+						/>
+					</Link>
 					<ul className={styles.navigation}>
 						<li>
-							<a href='/'>Home</a>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? styles.linkActive : undefined
+								}
+								to='/'
+							>
+								Home
+							</NavLink>
 						</li>
 						<li>
-							<a href='/favorite'>Favorite</a>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? styles.linkActive : undefined
+								}
+								to='/favorite'
+							>
+								Favorite
+							</NavLink>
 						</li>
 						<li>
-							<a href='/about'>About</a>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? styles.linkActive : undefined
+								}
+								to='/about'
+							>
+								About
+							</NavLink>
 						</li>
 					</ul>
 				</div>

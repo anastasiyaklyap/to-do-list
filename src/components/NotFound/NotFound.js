@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import PageTitle from '../PageTitle/PageTitle';
 
 const NotFound = () => {

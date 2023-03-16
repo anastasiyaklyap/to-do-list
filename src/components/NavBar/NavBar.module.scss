@@ -26,6 +26,10 @@
 					&:hover {
 						color: darken($color-light, 20%);
 					}
+
+					&.linkActive {
+						color: $color-warning;
+					}
 				}
 			}
 		}

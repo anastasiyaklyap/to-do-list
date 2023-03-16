@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { updateSearchQuery } from '../../redux/store';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { updateSearchQuery, getQuery } from '../../redux/store';
 import styles from './SearchForm.module.scss';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
@@ -8,11 +9,15 @@ import Button from '../Button/Button';
 const SearchForm = () => {
 	const [query, setQuery] = useState('');
 	const dispatch = useDispatch();
-
+	const queryStored = useSelector(getQuery);
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(updateSearchQuery(query));
 	};
+
+	useEffect(() => {
+		setQuery(queryStored);
+	}, [queryStored]);
 
 	return (
 		<form
