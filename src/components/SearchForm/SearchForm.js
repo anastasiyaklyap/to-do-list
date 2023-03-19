@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { updateSearchQuery, getQuery } from '../../redux/store';
+import { updateSearchQuery, getQuery } from '../../redux/searchStringReducer';
 import styles from './SearchForm.module.scss';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
